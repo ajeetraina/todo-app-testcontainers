@@ -23,7 +23,7 @@ public class ContainersConfig {
     }
 
     @Bean
-    OllamaContainer ollama(DynamicPropertyRegistry properties) throws IOException, InterruptedException {
+    OllamaContainer ollama(DynamicPropertyRegistry properties) {
         OllamaContainer ollamaContainer = new OllamaContainer(
                 DockerImageName.parse("ilopezluna/llama3.2:0.3.12-3b")
                         .asCompatibleSubstituteFor("ollama/ollama")
