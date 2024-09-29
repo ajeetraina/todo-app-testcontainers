@@ -5,7 +5,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import jakarta.persistence.*;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Table(name = "todos")
@@ -26,6 +26,11 @@ public class Todo {
 
     @Column(name = "order_number")
     private Integer order;
+
+    private Date createdAt = new Date();
+
+    @Column(name = "ragged_estimate", nullable = true)
+    private String raggedEstimate;
 
     public Todo() {
     }
@@ -78,5 +83,21 @@ public class Todo {
 
     public String getUrl() {
         return ServletUriComponentsBuilder.fromCurrentContextPath().toUriString() + "/todos/" + this.getId();
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getRaggedEstimate() {
+        return raggedEstimate;
+    }
+
+    public void setRaggedEstimate(String raggedEstimate) {
+        this.raggedEstimate = raggedEstimate;
     }
 }

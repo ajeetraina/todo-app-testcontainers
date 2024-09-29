@@ -5,12 +5,9 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.ollama.OllamaContainer;
 import org.testcontainers.utility.DockerImageName;
-
-import java.io.IOException;
 
 @TestConfiguration(proxyBeanMethods = false)
 public class ContainersConfig {
@@ -19,7 +16,7 @@ public class ContainersConfig {
     @ServiceConnection
     @RestartScope
     PostgreSQLContainer<?> postgreSQLContainer(){
-        return new PostgreSQLContainer<>("postgres:17-alpine");
+        return new PostgreSQLContainer<>("pgvector/pgvector:pg16").withLabel("com.testcontainers.desktop.service", "vector");
     }
 
     @Bean
