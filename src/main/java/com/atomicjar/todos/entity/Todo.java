@@ -5,6 +5,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
+
 @Entity
 @Table(name = "todos")
 public class Todo {
@@ -15,6 +17,9 @@ public class Todo {
 
     @Column(name = "title", nullable = false)
     private String title;
+
+    @Column(name = "estimate", nullable = true)
+    private String estimate;
 
     @Column(name = "completed")
     private Boolean completed = false;
@@ -30,6 +35,13 @@ public class Todo {
         this.title = title;
         this.completed = completed;
         this.order = order;
+    }
+
+    public String getEstimate() {
+        return estimate;
+    }
+    public void setEstimate(String estimate) {
+        this.estimate = estimate;
     }
 
     public String getId() {

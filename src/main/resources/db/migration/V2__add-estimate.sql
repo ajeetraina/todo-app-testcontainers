@@ -1,0 +1,1 @@
+alter table todos add column estimate varchar(256);

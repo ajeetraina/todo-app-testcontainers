@@ -2,6 +2,9 @@ package com.atomicjar.todos.web;
 
 import com.atomicjar.todos.entity.Todo;
 import com.atomicjar.todos.repository.TodoRepository;
+import com.atomicjar.todos.service.TodoEstimator;
+import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.ollama.OllamaChatModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +14,12 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/todos")
 public class TodoController {
+
+    private final TodoEstimator ai;
     private final TodoRepository repository;
 
-    public TodoController(TodoRepository repository) {
+    public TodoController(TodoRepository repository, TodoEstimator ai) {
+        this.ai = ai;
         this.repository = repository;
     }
 
@@ -33,6 +39,10 @@ public class TodoController {
     public ResponseEntity<Todo> save(@Valid @RequestBody Todo todo) {
         todo.setId(null);
         Todo savedTodo = repository.save(todo);
+        String estimate = ai.chat("todo title is '" + todo.getTitle() + "'.");
+        System.out.println("todo: " + todo.getTitle() + ", estimate: " + estimate);
+
+
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .header("Location", savedTodo.getUrl())
