@@ -1,5 +1,6 @@
 package com.atomicjar.todos.web;
 
+import com.atomicjar.todos.ContainersConfig;
 import com.atomicjar.todos.entity.Todo;
 import com.atomicjar.todos.repository.TodoRepository;
 import io.restassured.RestAssured;
@@ -19,9 +20,10 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = ContainersConfig.class)
 @Testcontainers
 public class TodoControllerTests {
     @LocalServerPort
@@ -91,6 +93,7 @@ public class TodoControllerTests {
                 .statusCode(201)
                 .body("title", is("Todo Item 1"))
                 .body("completed", is(false))
+                .body("estimate", is("2.5"))
                 .body("order", is(1));
     }
 
