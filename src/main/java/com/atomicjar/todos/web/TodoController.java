@@ -22,17 +22,14 @@ import java.time.Instant;
 public class TodoController {
 
     private final TodoEstimator estimator;
-    private final TodoEstimator ragged;
     private final TodoRepository repository;
     private final EmbeddingStoreIngestor ingestor;
 
     public TodoController(TodoRepository repository,
-                          @Qualifier("estimator") TodoEstimator estimator,
-                          @Qualifier("ragged") TodoEstimator ragged,
+                          TodoEstimator estimator,
                           EmbeddingStoreIngestor ingestor) {
-        this.estimator = estimator;
         this.repository = repository;
-        this.ragged = ragged;
+        this.estimator = estimator;
         this.ingestor = ingestor;
     }
 
@@ -53,8 +50,6 @@ public class TodoController {
         todo.setId(null);
         Estimation estimate = estimator.chat("todo title is '" + todo.getTitle() + "'.");
         System.out.printf("todo: %s has an estimation of %s because: %s%n", todo.getTitle(), estimate.hours, estimate.reason);
-        Estimation estimate2 = ragged.chat("todo title is '" + todo.getTitle() + "'.");
-        System.out.printf("todo: %s has an estimation of %s because: %s%n", todo.getTitle(), estimate2.hours, estimate2.reason);
         todo.setEstimate("" + estimate.hours);
         Todo savedTodo = repository.save(todo);
         return ResponseEntity

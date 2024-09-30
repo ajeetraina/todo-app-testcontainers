@@ -12,16 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class AIServicesConfiguration {
 
     @Bean
-    @Qualifier("estimator")
-    TodoEstimator estimator(ChatLanguageModel chatLanguageModel) {
-        return AiServices.builder(TodoEstimator.class)
-                .chatLanguageModel(chatLanguageModel)
-                .build();
-    }
-
-    @Bean
-    @Qualifier("ragged")
-    TodoEstimator ragged(ChatLanguageModel chatLanguageModel, RetrievalAugmentor retrievalAugmentor) {
+    TodoEstimator todoEstimator(ChatLanguageModel chatLanguageModel, RetrievalAugmentor retrievalAugmentor) {
         return AiServices.builder(TodoEstimator.class)
                 .chatLanguageModel(chatLanguageModel)
                 .retrievalAugmentor(retrievalAugmentor)
