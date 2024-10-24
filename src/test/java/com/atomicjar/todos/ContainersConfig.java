@@ -15,8 +15,9 @@ public class ContainersConfig {
     @Bean
     @ServiceConnection
     @RestartScope
-    PostgreSQLContainer<?> postgreSQLContainer(){
-        return new PostgreSQLContainer<>("pgvector/pgvector:pg16").withLabel("com.testcontainers.desktop.service", "vector");
+    PostgreSQLContainer<?> postgreSQLContainer() {
+        return new PostgreSQLContainer<>("pgvector/pgvector:pg16")
+                .withUsername("postgres").withPassword("postgres").withLabel("com.testcontainers.desktop.service", "vector");
     }
 
     @Bean
@@ -31,21 +32,6 @@ public class ContainersConfig {
 
         return ollamaContainer;
 
-//            String ollamaWithModelImagename = "ollama-with-llama3.1:8b";
-//        try {
-//            return new OllamaContainer(
-//                    DockerImageName.parse(ollamaWithModelImagename)
-//                            .asCompatibleSubstituteFor("ollama/ollama")
-//            );
-//        }
-//        catch (Exception e) {
-//            OllamaContainer ollamaContainer = new OllamaContainer("ollama/ollama:0.3.12");
-//            ollamaContainer.start();
-//
-//            ollamaContainer.execInContainer("ollama", "pull", "llama3.1:8b");
-//            ollamaContainer.commitToImage(ollamaWithModelImagename);
-//            return ollamaContainer;
-//        }
     }
 
 }

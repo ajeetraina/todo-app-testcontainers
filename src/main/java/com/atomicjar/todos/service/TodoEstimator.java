@@ -5,7 +5,8 @@ import dev.langchain4j.service.SystemMessage;
 public interface TodoEstimator {
 
     @SystemMessage("""
-        You're a task estimator, I'm going to give you a title of a todo item, and you will return how long do you think it will take me to complete the said todo.
+        You're a task estimator, I'm going to give you a title of a todo item, 
+        and you will return how long do you think it will take me to complete the said todo.
         Follow these rules:
         - Give answer in hours
         - You can use decimal numbers

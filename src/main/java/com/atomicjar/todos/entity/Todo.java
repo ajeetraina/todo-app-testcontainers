@@ -29,9 +29,6 @@ public class Todo {
 
     private Date createdAt = new Date();
 
-    @Column(name = "ragged_estimate", nullable = true)
-    private String raggedEstimate;
-
     public Todo() {
     }
 
@@ -91,13 +88,5 @@ public class Todo {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public String getRaggedEstimate() {
-        return raggedEstimate;
-    }
-
-    public void setRaggedEstimate(String raggedEstimate) {
-        this.raggedEstimate = raggedEstimate;
     }
 }

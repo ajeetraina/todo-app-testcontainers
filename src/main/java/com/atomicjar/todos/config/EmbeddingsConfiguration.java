@@ -31,8 +31,8 @@ public class EmbeddingsConfiguration {
                 .host(host)
                 .port(Integer.valueOf(port))
                 .database(database)
-                .user("test")
-                .password("test")
+                .user("postgres")
+                .password("postgres") // make it read the properties
                 .table("embeddings")
                 .dimension(384)
                 .build();
