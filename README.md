@@ -57,7 +57,7 @@ Open Docker Dashboard > Select the Compose service > Click "Delete".
 
 ## Using Testcontainers Open Source
 
-<tbd>
+TBD
 
 
 
