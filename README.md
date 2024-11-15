@@ -21,7 +21,7 @@ If the server is running in a Testcontainers environment, Testcontainers sets up
 
 ## Getting Started
 
-## Spinning up the complete application
+## Using Docker Compose
 
 ### Step 1. Clone the repository
 
@@ -48,6 +48,18 @@ Add the following backend URL - [http://localhost:8080/todos](http://localhost:8
 ![image](https://github.com/user-attachments/assets/38bcb37c-1b24-4be6-99ac-3ba2c7f569a3)
 
 Now, you should be able to add list of tasks.
+
+### Step 4. Bring down the compose services
+
+Open Docker Dashboard > Select the Compose service > Click "Delete".
+
+<img width="1005" alt="image" src="https://github.com/user-attachments/assets/66704208-b7b2-41dc-aab6-8a2a85894031">
+
+## Using Testcontainers Open Source
+
+<tbd>
+
+
 
 
 ## Using Testcontainers Desktop App
