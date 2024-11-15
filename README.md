@@ -45,8 +45,12 @@ Open [http://localhost:8080](http://localhost:8080) to acces the frontend app
 
 Add the following backend URL - [http://localhost:8080/todos](http://localhost:8080/todos) to the frontend.
 
-![image](https://github.com/user-attachments/assets/3330b4fd-1de7-4b08-8a96-011d052cc7e2)
+![image](https://github.com/user-attachments/assets/38bcb37c-1b24-4be6-99ac-3ba2c7f569a3)
 
+Now, you should be able to add list of tasks.
+
+
+## Using Testcontainers Desktop App
 
 
 
