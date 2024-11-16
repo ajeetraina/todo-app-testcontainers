@@ -94,6 +94,47 @@ Install [Testcontainers Desktop app](https://testcontainers.com/desktop?utm_medi
 
 <img width="448" alt="image" src="https://github.com/user-attachments/assets/adae2cd6-3880-4ddd-bc3c-fbd14f75bfcf">
 
+Choose "Tail logs" to see the following result:
+
+```
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgresql/data -l logfile start
+
+waiting for server to start....2024-11-16 12:45:49.781 UTC [41] LOG:  starting PostgreSQL 16.5 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309, 64-bit
+2024-11-16 12:45:49.781 UTC [41] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-11-16 12:45:49.782 UTC [44] LOG:  database system was shut down at 2024-11-16 12:45:49 UTC
+2024-11-16 12:45:49.784 UTC [41] LOG:  database system is ready to accept connections
+ done
+server started
+CREATE DATABASE
+
+
+/usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+
+waiting for server to shut down....2024-11-16 12:45:49.944 UTC [41] LOG:  received fast shutdown request
+2024-11-16 12:45:49.944 UTC [41] LOG:  aborting any active transactions
+2024-11-16 12:45:49.946 UTC [41] LOG:  background worker "logical replication launcher" (PID 47) exited with exit code 1
+2024-11-16 12:45:49.946 UTC [42] LOG:  shutting down
+2024-11-16 12:45:49.946 UTC [42] LOG:  checkpoint starting: shutdown immediate
+2024-11-16 12:45:49.958 UTC [42] LOG:  checkpoint complete: wrote 924 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.012 s, sync=0.001 s, total=0.012 s; sync files=0, longest=0.000 s, average=0.000 s; distance=4267 kB, estimate=4267 kB; lsn=0/191AB10, redo lsn=0/191AB10
+2024-11-16 12:45:49.961 UTC [41] LOG:  database system is shut down
+ done
+server stopped
+
+PostgreSQL init process complete; ready for start up.
+
+2024-11-16 12:45:50.060 UTC [1] LOG:  starting PostgreSQL 16.5 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309, 64-bit
+2024-11-16 12:45:50.060 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-11-16 12:45:50.060 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-11-16 12:45:50.061 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-11-16 12:45:50.062 UTC [57] LOG:  database system was shut down at 2024-11-16 12:45:49 UTC
+2024-11-16 12:45:50.064 UTC [1] LOG:  database system is ready to accept connections
+2024-11-16 12:50:50.069 UTC [55] LOG:  checkpoint starting: time
+2024-11-16 12:51:00.228 UTC [55] LOG:  checkpoint complete: wrote 101 buffers (0.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=10.155 s, sync=0.001 s, total=10.159 s; sync files=0, longest=0.000 s, average=0.000 s; distance=467 kB, estimate=467 kB; lsn=0/198F840, redo lsn=0/198F808
+```
+
 ## Using TestContainers Cloud
 
 3. Clone this repository or download and unzip it. 
