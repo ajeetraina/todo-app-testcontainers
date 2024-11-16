@@ -225,7 +225,7 @@ Let's add items in the frontend
 ![image](https://github.com/user-attachments/assets/30d20142-c067-4b20-94d3-5805bb19f7b5)
 
 
-Verifying:
+### Verifying:
 
 ```
 testdb=# SELECT * from todos;
@@ -235,6 +235,14 @@ testdb=# SELECT * from todos;
  6aa7a992-a042-43a6-be45-ea0d4b328f5f | Watch Netflix | f         |            2
 (2 rows)
 ```
+
+## Implementing the frontend change
+
+Locate the `todomvc-common.css` file (src/main/resources/public/css/vendor/todomvc-common.css) and change the hex value for the background color of the body (around line 25): 
+
+
+
+<img width="1270" alt="image" src="https://github.com/user-attachments/assets/c693347e-ce91-4470-91f0-69719a6f1481">
 
 
 
