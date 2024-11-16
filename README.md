@@ -76,18 +76,26 @@ While Docker Compose shines in development environments where you need to run th
 
 ## Using Testcontainers Open Source
 
+Clone this repository or download and unzip it, if you haven't done earlier.
 
+```
+cd todo-app-testcontainers
+./mvnw spring-boot:test-run                                    
+```
 
+<img width="1452" alt="image" src="https://github.com/user-attachments/assets/014206aa-46cd-4809-8850-5869e62acb0b">
 
 
 
 ## Using Testcontainers Desktop App
 
+Install [Testcontainers Desktop app](https://testcontainers.com/desktop?utm_medium=event&utm_source=2023-springone&utm_content=raffle-repo). It is free to try and takes less than 5 minutes!
 
 
+<img width="448" alt="image" src="https://github.com/user-attachments/assets/adae2cd6-3880-4ddd-bc3c-fbd14f75bfcf">
 
-1. Install [Testcontainers Desktop app](https://testcontainers.com/desktop?utm_medium=event&utm_source=2023-springone&utm_content=raffle-repo). It is free to try and takes less than 5 minutes!
-2. Configure Testcontainers Desktop to run with Testcontainers Cloud (select the correct menu item)
+## Using TestContainers Cloud
+
 3. Clone this repository or download and unzip it. 
 4. Run application locally letting Spring Boot and Testcontainers set up a database for it: `./mvnw spring-boot:test-run`
 5. Open the application in the browser: [link](http://localhost:8080/?http://localhost:8080/todos)
