@@ -245,6 +245,12 @@ Locate the `todomvc-common.css` file (src/main/resources/public/css/vendor/todom
 <img width="1270" alt="image" src="https://github.com/user-attachments/assets/c693347e-ce91-4470-91f0-69719a6f1481">
 
 
+Let's change it to blue "#a69cff". Don't forget to save this file.
+
+<img width="980" alt="image" src="https://github.com/user-attachments/assets/0e2c0eb6-44ac-4c90-8548-558f7b5f9162">
+
+
+
 
 ## Using TestContainers Cloud
 
