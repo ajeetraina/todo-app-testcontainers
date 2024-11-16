@@ -58,7 +58,8 @@ Open Docker Dashboard > Select the Compose service > Click "Delete".
 ## Why Testcontainers?
 
 Docker Compose is a great development tool  that focuses on Application packaging, deployment, and delivery.
-But when it comes to testing, it has certain limitations:
+But when it comes to testing, you might need a better tool.
+
 - Limited support for parallel test execution.
 - Requires manual orchestration and teardown of containers.
 - Lacks features to dynamically adjust test environments per test case.
