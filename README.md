@@ -4,9 +4,9 @@ This project demonstrates how to use Testcontainers with Spring Boot to simplify
 
 ## Tech Stack
 
-- Client: Represents the user interface, which in this case is a browser.
-- Server: Represents the server-side application, which includes Spring Boot, Spring Data JPA, and PostgreSQL.
-- Testcontainers: Represents the Testcontainers environment, which includes a PostgreSQL container for testing.
+- **Client**: Represents the user interface, which in this case is a browser.
+- **Server**: Represents the server-side application, which includes Spring Boot, Spring Data JPA, and PostgreSQL.
+- **Testcontainers**: Represents the Testcontainers environment, which includes a PostgreSQL container for testing.
 
 The client sends a request to the server. The server processes the request using Spring Boot, Spring Data JPA, and PostgreSQL.
 If the server is running in a Testcontainers environment, Testcontainers sets up a PostgreSQL container for testing.
