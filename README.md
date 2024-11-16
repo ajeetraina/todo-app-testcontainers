@@ -55,9 +55,25 @@ Open Docker Dashboard > Select the Compose service > Click "Delete".
 
 <img width="1005" alt="image" src="https://github.com/user-attachments/assets/66704208-b7b2-41dc-aab6-8a2a85894031">
 
-## Using Testcontainers Open Source
+## Why Testcontainers?
 
-TBD
+Docker Compose is a great development tool  that focuses on Application packaging, deployment, and delivery.
+But when it comes to testing, it has certain limitations:
+- Limited support for parallel test execution.
+- Requires manual orchestration and teardown of containers.
+- Lacks features to dynamically adjust test environments per test case.
+
+Testcontainers simplifyies test environment management.
+
+- Allows tests to spin up lightweight, isolated containers dynamically.
+- Supports parallel test execution with isolated environments for each test case.
+- Automatically manages container lifecycle (start, stop, cleanup).
+- Provides integrations with testing frameworks like JUnit, PyTest, etc.
+- Supports fine-grained control over environment configuration, such as databases, message brokers, or even entire application stacks.
+
+
+
+
 
 
 
