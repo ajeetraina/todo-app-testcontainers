@@ -9,12 +9,13 @@ import org.testcontainers.containers.PostgreSQLContainer;
 @TestConfiguration(proxyBeanMethods = false)
 public class ContainersConfig {
 
-    @Bean
-    @ServiceConnection
-    @RestartScope
-    PostgreSQLContainer<?> postgreSQLContainer() {
-        return new PostgreSQLContainer<>(
-                "postgres:16-alpine");
-    }
-
+   @Bean
+   @ServiceConnection
+   @RestartScope
+   PostgreSQLContainer<?> postgreSQLContainer() {
+        return new PostgreSQLContainer<>("postgres:16-alpine")
+            .withUsername("testuser")
+            .withPassword("testpassword")
+            .withDatabaseName("testdb");
+  }
 }
