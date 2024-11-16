@@ -72,7 +72,9 @@ Testcontainers simplifyies test environment management.
 - Provides integrations with testing frameworks like JUnit, PyTest, etc.
 - Supports fine-grained control over environment configuration, such as databases, message brokers, or even entire application stacks.
 
+While Docker Compose shines in development environments where you need to run the entire stack for local testing or debugging, it falls short in test automation scenarios that require parallelism and dynamic provisioning of environments. For such use cases, Testcontainers is a more suitable choice, providing the flexibility and isolation needed for robust, automated testing.
 
+## Using Testcontainers Open Source
 
 
 
