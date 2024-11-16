@@ -135,6 +135,107 @@ PostgreSQL init process complete; ready for start up.
 2024-11-16 12:51:00.228 UTC [55] LOG:  checkpoint complete: wrote 101 buffers (0.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=10.155 s, sync=0.001 s, total=10.159 s; sync files=0, longest=0.000 s, average=0.000 s; distance=467 kB, estimate=467 kB; lsn=0/198F840, redo lsn=0/198F808
 ```
 
+## Accessing the frontend
+
+![image](https://github.com/user-attachments/assets/431b62c4-c184-44da-a24d-1b0c2fd7f10c)
+
+Let's verify if Postgres is functional or not
+
+Open Docker Dashboard > Select Postgres container > Click "EXEC" and open the container terminal.
+
+```
+/ # psql -U testuser -d testdb
+psql (16.5)
+Type "help" for help.
+
+testdb=# 
+```
+
+### List all DBs
+
+```
+testdb=# \l
+                                                      List of databases
+   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
+ postgres  | testuser | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
+ template0 | testuser | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/testuser          +
+           |          |          |                 |            |            |            |           | testuser=CTc/testuser
+ template1 | testuser | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/testuser          +
+           |          |          |                 |            |            |            |           | testuser=CTc/testuser
+ testdb    | testuser | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
+(4 rows)
+
+testdb=#
+```
+
+### Switch to testdb
+
+```
+testdb=# \c testdb
+You are now connected to database "testdb" as user "testuser".
+testdb=#
+```
+
+### List the tables
+
+```
+testdb=# \dt
+                 List of relations
+ Schema |         Name          | Type  |  Owner   
+--------+-----------------------+-------+----------
+ public | flyway_schema_history | table | testuser
+ public | todos                 | table | testuser
+(2 rows)
+
+testdb=#
+```
+
+### Table Information
+
+
+```
+testdb=# \d todos
+                          Table "public.todos"
+    Column    |          Type          | Collation | Nullable | Default 
+--------------+------------------------+-----------+----------+---------
+ id           | character varying(100) |           | not null | 
+ title        | character varying(200) |           | not null | 
+ completed    | boolean                |           |          | false
+ order_number | integer                |           |          | 
+Indexes:
+    "todos_pkey" PRIMARY KEY, btree (id)
+
+testdb=#
+```
+
+## List the items
+
+```
+testdb=# SELECT * from todos;
+ id | title | completed | order_number 
+----+-------+-----------+--------------
+(0 rows)
+```
+
+Let's add items in the frontend 
+
+![image](https://github.com/user-attachments/assets/30d20142-c067-4b20-94d3-5805bb19f7b5)
+
+
+Verifying:
+
+```
+testdb=# SELECT * from todos;
+                  id                  |     title     | completed | order_number 
+--------------------------------------+---------------+-----------+--------------
+ 3dd20ce7-e045-4caf-93c1-d6b23876bb09 | Buy Grocery   | f         |            1
+ 6aa7a992-a042-43a6-be45-ea0d4b328f5f | Watch Netflix | f         |            2
+(2 rows)
+```
+
+
+
 ## Using TestContainers Cloud
 
 3. Clone this repository or download and unzip it. 
