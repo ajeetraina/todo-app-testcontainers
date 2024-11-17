@@ -78,6 +78,10 @@ While Docker Compose shines in development environments where you need to run th
 
 ## Using Testcontainers Open Source
 
+To replace Docker Compose with Testcontainers, you can manage the db and server containers programmatically, seed the database, and ensure proper integration testing. Below is a solution to spin up your db and server services using Testcontainers. Later, you'll see how to seed the database, test the backend/frontend interactions, and clean up afterward.
+
+
+
 Clone this repository or download and unzip it, if you haven't done earlier.
 
 ```
