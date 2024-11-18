@@ -218,7 +218,7 @@ testdb=#
 ## List the items
 
 ```
-testdb=# SELECT * from todos;
+testdb=# SELECT * FROM todos;
  id | title | completed | order_number 
 ----+-------+-----------+--------------
 (0 rows)
@@ -232,7 +232,7 @@ Let's add items in the frontend
 ### Verifying:
 
 ```
-testdb=# SELECT * from todos;
+testdb=# SELECT * FROM todos;
                   id                  |     title     | completed | order_number 
 --------------------------------------+---------------+-----------+--------------
  3dd20ce7-e045-4caf-93c1-d6b23876bb09 | Buy Grocery   | f         |            1
