@@ -1,4 +1,4 @@
-# A Simple Todo List App demonstrating TestContainers
+# A Simple Todo List App demonstrating Testcontainers
 
 This project demonstrates how to use Testcontainers with Spring Boot to simplify testing and ensure compatibility between your application and different database systems.
 
