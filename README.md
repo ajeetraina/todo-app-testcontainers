@@ -13,7 +13,7 @@ This project demonstrates how to use Testcontainers with Spring Boot to simplify
 The client sends a request to the server. The server processes the request using Spring Boot, Spring Data JPA, and PostgreSQL.
 If the server is running in a Testcontainers environment, Testcontainers sets up a PostgreSQL container for testing.
 
-<img width="1083" alt="image" src="https://github.com/user-attachments/assets/27ea7cba-f413-45bc-b1a6-6f0e506ded38">
+<img width="958" alt="image" src="https://github.com/user-attachments/assets/0dc2ace4-428f-4d8a-b14f-7a7c6ba6a83a">
 
 
 
