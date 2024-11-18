@@ -52,6 +52,10 @@ Add the following backend URL - [http://localhost:8080/todos](http://localhost:8
 
 Now, you should be able to add a list of tasks.
 
+Let's verify if Postgres is functional or not
+
+Open Docker Dashboard > Select Postgres container > Click "EXEC" and open the container terminal.
+
 ```
 / # psql -U postgres
 psql (16.5)
