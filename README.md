@@ -50,7 +50,46 @@ Add the following backend URL - [http://localhost:8080/todos](http://localhost:8
 
 ![image](https://github.com/user-attachments/assets/38bcb37c-1b24-4be6-99ac-3ba2c7f569a3)
 
-Now, you should be able to add list of tasks.
+Now, you should be able to add a list of tasks.
+
+```
+/ # psql -U postgres
+psql (16.5)
+Type "help" for help.
+
+postgres=# \l
+                                                      List of databases
+   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
+ postgres  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
+ template0 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
+           |          |          |                 |            |            |            |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
+           |          |          |                 |            |            |            |           | postgres=CTc/postgres
+(3 rows) 
+         
+postgres=# 
+postgres=# 
+postgres=# 
+postgres=# \dt
+                 List of relations
+ Schema |         Name          | Type  |  Owner   
+--------+-----------------------+-------+----------
+ public | flyway_schema_history | table | postgres
+ public | todos                 | table | postgres
+(2 rows)
+
+postgres=# SELECT * from todos;
+ id | title | completed | order_number 
+----+-------+-----------+--------------
+(0 rows)
+
+postgres=# SELECT * from todos;
+                  id                  |     title     | completed | order_number 
+--------------------------------------+---------------+-----------+--------------
+ fd1d8e2a-a950-4d3d-a780-47773f8dd14e | Watch Netflix | f         |            1
+(1 row)
+```
 
 ### Step 4. Bring down the compose services
 
