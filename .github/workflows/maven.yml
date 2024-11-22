@@ -33,6 +33,8 @@ jobs:
         token: ${{ secrets.TC_CLOUD_TOKEN }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Build app
+      run: ./mvnw spring-boot:test-run                                     
     - name: Test Report
       uses: scacap/action-surefire-report@v1
       if: success() || failure()
