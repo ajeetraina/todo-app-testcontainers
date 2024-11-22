@@ -21,4 +21,33 @@ public class TestApplication {
                 .with(ContainersConfig.class)
                 .run(args);
     }
+
+}
+
+@Component
+class DataLoader {
+
+    private TodoRepository todoRepository;
+    JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public DataLoader(TodoRepository todoRepository, JdbcTemplate jdbcTemplate) {
+        this.todoRepository = todoRepository;
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @PostConstruct
+    public void addTodo() {
+        String serverVersion = DockerClientFactory.instance().getInfo().getServerVersion();
+        String title = "Set up and run with Testcontainers desktop app and Testcontainers Cloud!";
+
+        if (serverVersion.contains("testcontainerscloud")) {
+            String string = jdbcTemplate.queryForObject("SELECT encode(sha256(?::bytea), 'hex')", String.class, serverVersion);
+            title = "I need your root, your RAM, and your CPU cycles";
+        }
+
+        Todo t = new Todo();
+        t.setTitle(title);
+        todoRepository.save(t);
+    }
 }
