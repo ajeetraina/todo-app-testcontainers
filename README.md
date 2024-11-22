@@ -44,6 +44,8 @@ docker compose up -d --build
 
 ### Step 3. Accessing the app
 
+** PLEASE ENSURE THAT YOU WON'T USE HTTPS HERE **
+
 Open [http://localhost:8080](http://localhost:8080) to acces the frontend app
 
 Add the following backend URL - [http://localhost:8080/todos](http://localhost:8080/todos) to the frontend.
